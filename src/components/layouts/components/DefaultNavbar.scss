@@ -1,0 +1,54 @@
+.default-navbar {
+    width: 150px;
+    min-height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid #000000;
+    position: fixed;
+    z-index: 10;
+    background: #ffffff;
+
+    @media only screen and (max-width: 768px) {
+        &.mobile-on {
+            display: block;
+        }
+
+        &.mobile-off {
+            display: none;
+        }
+    }
+
+    .default-navbar-menu {
+        li {
+            padding: 20px 12px;
+            border-bottom: 1px solid #000000;
+            text-align: center;
+
+            &.on {
+                background: rgba(150, 150, 150, 0.3);
+                a {
+                    color: #000000;
+                }
+            }
+        }
+
+        a {
+            color: rgba(150, 150, 150, 0.8);
+            text-decoration: none;
+        }
+    }
+}
+
+.mobile-menu-bg {
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    display: none;
+    cursor: pointer;
+
+    @media only screen and (max-width: 768px) {
+        display: block;
+    }
+}

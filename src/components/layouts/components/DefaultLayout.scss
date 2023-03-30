@@ -1,0 +1,14 @@
+.default-layout {
+    .default-layout-contents {
+        margin-left: 150px;
+        width: calc(100% - 150px);
+        padding: 12px 32px 32px 12px;
+        box-sizing: border-box;
+
+        @media only screen and (max-width: 768px) {
+            margin-left: 0;
+            padding: 12px;
+            width: 100%;
+        }
+    }
+}

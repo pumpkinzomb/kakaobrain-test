@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, useRoutes, Navigate } from 'react-router-dom';
+import { DefaultLayout } from '@/components/layouts';
+import Users from '@/components/pages/Users';
+import Images from '@/components/pages/Images';
+import Canvas from '@/components/pages/Canvas';
+import ActionsProvider from '@/components/providers/ActionsProvider';
+import DialogProvider from '@/components/providers/DialogProvider';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const RouterApp = () => {
+    const element = useRoutes([
+        {
+            path: '/',
+            element: <DefaultLayout />,
+            children: [
+                { index: true, element: <Users /> },
+                { path: 'users', element: <Users /> },
+                { path: 'images', element: <Images /> },
+                { path: 'canvas', element: <Canvas /> },
+            ],
+        },
+        {
+            path: '/*',
+            element: <Navigate replace to="/users" />,
+        },
+    ]);
+    return element;
+};
 
-export default App;
+const AppWrapper = () => {
+    return (
+        <DialogProvider>
+            <ActionsProvider>
+                <Router>
+                    <RouterApp />
+                </Router>
+            </ActionsProvider>
+        </DialogProvider>
+    );
+};
+
+export default AppWrapper;

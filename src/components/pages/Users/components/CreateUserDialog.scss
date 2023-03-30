@@ -1,0 +1,56 @@
+.create-user-dialog {
+    background: #ffffff;
+    width: 500px;
+    display: flex;
+    padding: 24px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    flex-direction: column;
+    font-family: 'SUIT Variable';
+
+    h1 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 120%;
+    }
+
+    form {
+        margin-top: 24px;
+
+        .btn-field {
+            margin-top: 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+
+            button {
+                cursor: pointer;
+                padding: 8px 24px;
+
+                &:hover {
+                    background: rgba(150, 150, 150, 0.4);
+                }
+
+                &.black-contain {
+                    background: #000000;
+                    color: #ffffff;
+                    border-color: #000000;
+
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.8);
+                    }
+                }
+
+                &.disabled {
+                    background: rgba(0, 0, 0, 0.2);
+                    border: 0 none;
+                    cursor: unset;
+
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+    }
+}
